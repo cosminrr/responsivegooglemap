@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Responsive Google Maps Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Latest Google Maps API JS -->
+  <!-- You need your own Google API Key for this script; Get it here: https://developers.google.com/maps/documentation/javascript/get-api-key -->
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAiPWBeLcU-gr4KeII8BbMabU9YPa16PaA&callback=initMap"></script>  
+ 
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  
+  <!-- Custom JS that sets: Zoom, Pointer and Map Type; Change the class name of the <div> where you want the map: current class name is "map-location" -->
+ <script type="text/javascript">
+      function initialize() {
+        var mapOptions = {
+                zoom: 17,
+                center: new google.maps.LatLng(51.506767, -0.1244953),   
+                mapTypeId: google.maps.MapTypeId.TERRAIN
+            };
+
+        var map = new google.maps.Map(document.getElementById("map-location"),
+                                        mapOptions);
+                                  
+        var marker = new google.maps.Marker({
+                        map: map, 
+                        draggable: false, 
+                        position: new google.maps.LatLng(51.506767, -0.1244953)
+            });
+     }
+                            
+     google.maps.event.addDomListener(window, 'resize', initialize);
+     google.maps.event.addDomListener(window, 'load', initialize);
+                         
+ </script>
+ </head>
+ <body>
+     <div class="container">
+         <div class="container">
+             <div id="map-location" style="width:100%; height:300px;"></div>
+         </div>
+         
+            <div class="page-header">
+
+              <h2>Responsive Google Map Tutorial</h2>
+
+            </div>
+
+             <div class="container-fluid">
+
+              <h3>Getting started</h3>
+                <p>This tutorial uses HTML5 and JavaScript to implement this map, no iframes or css</p>
+                <h4>Implementation guide</h4>
+              <ul>
+                <li>Get a Key/Authentication - Google Maps JavaScript API <a href="https://developers.google.com/maps/documentation/javascript/get-api-key" target="_blank">here</a>
+                <li>Edit the header line <code>https://maps.googleapis.com/maps/api/js?key=<strong style="color: green">[KEY]</strong>&callback=initMap</code>
+ and replace <strong style="color: green">[KEY]</strong> with your unique Google Maps Key</li>
+                <li>Use <a href="https://maps.google.com" target="_blank">Google Maps</a> or other aplication to find the GPS coordinates of the location/pointer on the map and paste them on line 22 and 32 here like this: <code>new google.maps.LatLng(<strong style="color: green">51.506767, -0.1244953</strong>) </code></li>
+              </ul>
+
+              </div>
+
+     </div>
+ </body>
+</html>
